@@ -18,6 +18,8 @@ The installer is not code-signed yet, so on first run Windows SmartScreen asks o
 - **No two agents on the same step.** An agent claims a step under a lease before it works. The next agent sees the claim and takes other work, or picks up the handoff, with its notes, when the step is released.
 - **One inbox.** Questions, plan approvals and permission prompts from every session, each showing the command or file change it asks about. Answer them without switching terminals.
 - **Launch from the plan.** Start any installed agent on a step in a built-in terminal; its first message is typed for you. With "Ask before tools", the agent asks before each tool, whatever its own defaults say.
+- **Agents pick up where they left off.** After a restart, an update or a crash, each agent reopens its own conversation with its harness's resume command, in the same permission mode.
+- **It learns from what went wrong.** When a command fails, Cockpit finds what fixed it and tells the next agent that hits the same failure, at that moment. A failure that keeps coming back becomes project memory every agent reads.
 - **On your phone.** Pair over Tailscale with a QR code. Answer prompts with Slide to approve, follow live terminals and replays, start an agent, edit the plan. Every paired phone has its own token, and the app can be locked with a passcode.
 - **It wires itself.** Cockpit finds the agents installed on your machine and connects their hooks and MCP in each one's own format, with its own runtime: no Node.js to install.
 
