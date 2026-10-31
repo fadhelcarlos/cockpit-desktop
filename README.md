@@ -1,6 +1,6 @@
 # Robin
 
-Your coding agents, working as one team.
+Your coding agents, working as one team. [getrobin.dev](https://getrobin.dev)
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/plan-dark.webp">
@@ -54,5 +54,7 @@ The installers aren't signed yet. On Windows, choose **More info**, then **Run a
 ## About this repository
 
 It hosts Robin's installers and the feed the app updates from. The app's source is private.
+
+Questions, or something that doesn't work: [info@getrobin.dev](mailto:info@getrobin.dev).
 
 Built by [Carlos Fadhel](https://checkboxlabs.my/carlosfadhel).
