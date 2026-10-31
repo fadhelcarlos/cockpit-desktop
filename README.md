@@ -11,7 +11,7 @@ Robin is a desktop app, with a phone companion, that runs the coding agents you 
 
 ## Download
 
-| | |
+| System | Installer |
 | --- | --- |
 | **Windows** 10 and 11 | [Robin-Setup.exe](https://github.com/fadhelcarlos/robin-desktop/releases/latest/download/Robin-Setup.exe) |
 | **macOS** 12 or later, Apple silicon | [Robin-Setup-arm64.dmg](https://github.com/fadhelcarlos/robin-desktop/releases/latest/download/Robin-Setup-arm64.dmg) |
