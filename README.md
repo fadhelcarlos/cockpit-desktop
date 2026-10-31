@@ -1,42 +1,58 @@
-# Cockpit
+# Robin
 
-One plan and one inbox for every coding agent you run.
+Your coding agents, working as one team.
 
-![Cockpit: the plan, the step in focus and the live stream of what each agent is doing](docs/plan.webp)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/plan-dark.webp">
+  <img src="docs/plan-light.webp" alt="Robin with a goal planned: three tasks, each with its agent, waiting for Start">
+</picture>
 
-Cockpit is a desktop app for people who work with coding agents. Agents in any of 12 harnesses (Claude Code, Codex, Gemini CLI, Cursor, GitHub Copilot CLI, OpenCode, Qwen Code, Factory Droid, Amp, Cline, Goose and Aider) work from one plan that lives as Markdown in your repo. They claim a step before they start, hand off with notes when they stop, and share what they learned. When one needs you, its question, plan approval or permission prompt lands in one inbox, on the desktop or on your phone.
+Robin is a desktop app, with a phone companion, that runs the coding agents you already use as one team on your own computer: Claude Code, Codex, Gemini CLI, Cursor, OpenCode, Qwen Code, Goose, GitHub Copilot CLI, Factory Droid, Amp, Cline and Aider. Say what to build. An agent plans it into tasks, and nothing runs until you press Start. Each task works in its own branch with the agent that fits it, an agent from another vendor reviews every change, your checks decide when it's done, and only the decisions that are yours reach you, at your desk or on your phone.
 
 ## Download
 
-**[Cockpit for Windows](https://github.com/fadhelcarlos/cockpit-desktop/releases/latest/download/Cockpit-Setup.exe)** · Windows 10 and 11, x64 · [all releases](https://github.com/fadhelcarlos/cockpit-desktop/releases)
+| | |
+| --- | --- |
+| **Windows** 10 and 11 | [Robin-Setup.exe](https://github.com/fadhelcarlos/robin-desktop/releases/latest/download/Robin-Setup.exe) |
+| **macOS** 12 or later, Apple silicon | [Robin-Setup-arm64.dmg](https://github.com/fadhelcarlos/robin-desktop/releases/latest/download/Robin-Setup-arm64.dmg) |
+| **macOS** 12 or later, Intel | [Robin-Setup-x64.dmg](https://github.com/fadhelcarlos/robin-desktop/releases/latest/download/Robin-Setup-x64.dmg) |
+| **Linux** x64 | [Robin.AppImage](https://github.com/fadhelcarlos/robin-desktop/releases/latest/download/Robin.AppImage) or [robin_amd64.deb](https://github.com/fadhelcarlos/robin-desktop/releases/latest/download/robin_amd64.deb) |
 
-The installer is not code-signed yet, so on first run Windows SmartScreen asks once: choose **More info**, then **Run anyway**. Cockpit installs for all users (one administrator prompt) and updates itself from inside the app.
+Every version is in [the releases](https://github.com/fadhelcarlos/robin-desktop/releases). Robin updates itself from inside the app, and an install from before the rename moves over by itself, settings and history included.
+
+The installers aren't signed yet. On Windows, choose **More info**, then **Run anyway**. On a Mac, open **System Settings**, **Privacy & Security**, and choose **Open Anyway**.
 
 ## What it does
 
-- **One plan for every agent.** Priorities, phases and steps in Markdown inside your repo, versioned with your code. Agents read and update it through an MCP server or the `cockpit` CLI.
-- **No two agents on the same step.** An agent claims a step under a lease before it works. The next agent sees the claim and takes other work, or picks up the handoff, with its notes, when the step is released.
-- **One inbox.** Questions, plan approvals and permission prompts from every session, each showing the command or file change it asks about. Answer them without switching terminals.
-- **Launch from the plan.** Start any installed agent on a step in a built-in terminal; its first message is typed for you. With "Ask before tools", the agent asks before each tool, whatever its own defaults say.
-- **Agents pick up where they left off.** After a restart, an update or a crash, each agent reopens its own conversation with its harness's resume command, in the same permission mode.
-- **It learns from what went wrong.** When a command fails, Cockpit finds what fixed it and tells the next agent that hits the same failure, at that moment. A failure that keeps coming back becomes project memory every agent reads.
-- **On your phone.** Pair over Tailscale with a QR code. Answer prompts with Slide to approve, follow live terminals and replays, start an agent, edit the plan. Every paired phone has its own token, and the app can be locked with a passcode.
-- **It wires itself.** Cockpit finds the agents installed on your machine and connects their hooks and MCP in each one's own format, with its own runtime: no Node.js to install.
+- **Plan first.** Type a goal, or send a GitHub or Linear issue. An agent reads the code and splits the work into tasks, each with its files, its steps, its agent and what done means. You can edit the plan, and nothing runs until you press Start.
+- **One team, many vendors.** Every task works in its own git worktree, side by side. The agents agree on how their pieces fit in the goal's thread, and an agreement, once pinned, holds every task it touches.
+- **Reviewed by another vendor.** Claude Code reviews Codex's change, Codex reviews Gemini CLI's. A finding goes back to the agent that wrote the change before it ever reaches you.
+- **Checks decide done.** Your own scripts are the gate. A failure goes back to the agent with what failed, and if an agent stops, at a usage limit or an error, another one continues in the same checkout with a handoff.
+- **Only real decisions reach you.** Inside its own branch an agent never waits on you. When something is yours to decide, it asks with the options and what each one means, and you answer at your desk or slide to approve on your phone.
+- **It remembers.** A brief of your project, written from the code and kept current, what earlier agents learned and the agreements in force go into every session, from every agent, through its hooks and MCP.
+- **Real terminals.** Any agent you start yourself runs in a native terminal inside Robin, tied to its goal and its task. It outlives the window, never stalls the app, and answers from your phone.
+- **Yours.** Robin runs on your machine with your agents' own accounts. No Robin account, no telemetry. The phone pairs to your computer over your own Tailscale network, never the public internet.
 
 <p>
-  <img src="docs/phone-approve.webp" alt="A permission prompt on the phone: the exact command, the files edited so far, Deny and Slide to approve" width="300">
-  &nbsp;&nbsp;
-  <img src="docs/agents.webp" alt="Agents on this machine: each harness with what Cockpit connected" width="300">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/thread-dark.webp">
+    <img src="docs/thread-light.webp" alt="The goal's thread: an agreement pinned by Claude Code and Gemini CLI, and Claude Code's review of Codex's change" width="560">
+  </picture>
+  &nbsp;
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="docs/phone-approve-dark.webp">
+    <img src="docs/phone-approve-light.webp" alt="On the phone: Codex asks to change a file outside its task, with why you're asked, Deny and Slide to approve" width="200">
+  </picture>
 </p>
 
 ## Requirements
 
-- Windows 10 or 11, x64
+- Windows 10 or 11 (x64), macOS 12 or later, or Linux (x64)
 - At least one supported coding agent, installed and signed in
-- [Tailscale](https://tailscale.com), only for the phone app
+- [Tailscale](https://tailscale.com), only for the phone
 
 ## About this repository
 
-It hosts Cockpit's installers and the feed the app updates from. The app's source is private.
+It hosts Robin's installers and the feed the app updates from. The app's source is private.
 
 Built by [Carlos Fadhel](https://checkboxlabs.my/carlosfadhel).
